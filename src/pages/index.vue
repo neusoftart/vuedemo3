@@ -15,6 +15,11 @@
       </div>
       <div class="index-left-block lastest-news">
           <h2>最新消息</h2>
+          <ul>
+            <li v-for="item in newsList">
+              <a :href="item.url">{{ item.title }}</a>
+            </li>
+          </ul>
       </div>
     </div>
   </div>
@@ -23,6 +28,24 @@
   export default{
     data(){
       return{
+        newsList:[
+          {
+            title: 'MacBookPro',
+            url: 'http://www.apple.com.cn'
+          },
+          {
+            title: 'iPhone',
+            url: 'http://www.apple.com.cn'
+          },
+          {
+              title: '测试数据',
+              url: 'http://www.apple.com.cn'
+          },
+          {
+                title: '广告分发',
+                url: 'http://www.apple.com.cn'
+          },
+        ],
         productList:{
           pc:{
             title: 'PC产品',
