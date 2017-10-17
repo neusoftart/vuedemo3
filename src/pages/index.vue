@@ -22,12 +22,54 @@
           </ul>
       </div>
     </div>
+    <div class="index-right">
+      <div class="index-board-list">
+        <div
+          class="index-board-item"
+          v-for=" (item,index) in boardList"
+          :class="[{ 'line-last' : index % 2 !== 0},'index-board-' + item.id]">
+          <div class="index-board-item-inner">
+            <h2> {{ item.title }} </h2>
+            <p>{{ item.description }}</p>
+            <div class="index-board-button">
+              <a href="#" class="button">立即购买</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
   export default{
     data(){
       return{
+        boardList:[
+          {
+            title: '开放产品',
+            description: '开放产品是一款开放产品',
+            id:'car',
+            saleout:false
+          },
+          {
+            title: '品牌营销',
+            description: '品牌营销帮助你的产品更好地找到定位',
+            id:'earth',
+            saleout:false
+          },
+          {
+              title: '使命必达',
+              description: '使命必达快速迭代永远保持最前端的速度',
+              id:'loud',
+              saleout:true
+          },
+          {
+                title: '勇攀高峰',
+                description: '帮你勇闯高峰，到达事业的顶峰',
+                id:'hill',
+                saleout:false
+          },
+        ],
         newsList:[
           {
             title: 'MacBookPro',
