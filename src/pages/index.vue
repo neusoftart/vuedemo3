@@ -3,22 +3,75 @@
     <div class="index-left">
       <div class="index-left-block">
          <h2>全部产品</h2>
-         <h3>PC产品</h3>
-         <ul>
-              <li>测试数据</li>
-         </ul>
-         <h3>应用产品</h3>
-         <ul>
-              <li>测试数据</li>
-         </ul>
+         <template v-for="product in productList">
+           <h3>{{ product.title }}</h3>
+           <ul>
+                <li v-for="item in product.list">
+                  <a :href="item.url">{{ item.title }}</a>
+                </li>
+           </ul>
+           <div v-if="!product.last" class="hr"></div>
+         </template>
       </div>
       <div class="index-left-block lastest-news">
-          <h2>最新消息</h2> 
+          <h2>最新消息</h2>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+  export default{
+    data(){
+      return{
+        productList:{
+          pc:{
+            title: 'PC产品',
+            list:[
+              {
+                title: 'MacBookPro',
+                url: 'http://www.apple.com.cn'
+              },
+              {
+                title: 'iPhone',
+                url: 'http://www.apple.com.cn'
+              },
+              {
+                  title: '测试数据',
+                  url: 'http://www.apple.com.cn'
+              },
+              {
+                    title: '广告分发',
+                    url: 'http://www.apple.com.cn'
+              },
+            ]
+          },
+          app:{
+            title:'手机应用类',
+            last:true,
+            list:[
+              {
+                title: '91助手',
+                url: 'http://www.91.com'
+              },
+              {
+                title: '智能地图',
+                url: 'http://www.apple.com.cn'
+              },
+              {
+                title: '支付宝',
+                url: 'http://www.apple.com.cn'
+              },
+              {
+                title: '产品助手',
+                url: 'http://www.apple.com.cn'
+              },
+            ]
+          }
+        }
+      }
+    }
+  }
+</script>
 
 
 <style scoped>
