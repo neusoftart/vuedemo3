@@ -23,6 +23,7 @@
       </div>
     </div>
     <div class="index-right">
+      <slideShow></slideShow>
       <div class="index-board-list">
         <div
           class="index-board-item"
@@ -41,7 +42,11 @@
   </div>
 </template>
 <script>
+import slideShow from '../components/sliderShow'
   export default{
+    components:{
+      slideShow
+    },
     data(){
       return{
         boardList:[
