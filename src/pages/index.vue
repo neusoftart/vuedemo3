@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="index-right">
-      <slideShow :sildes="slides" :inv="invTime"></slideShow>
+      <slideShow :slides="slides" :inv="invTime"></slideShow>
       <div class="index-board-list">
         <div
           class="index-board-item"
