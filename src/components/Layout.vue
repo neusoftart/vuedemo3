@@ -9,22 +9,39 @@
                    <li class="nav-pile">|</li>
                    <li>注册</li>
                    <li class="nav-pile">|</li>
-                   <li>关于</li>
+                   <li @click="aboutClick">关于</li>
                </ul>
              </div>
          </div>
      </div>
      <div class="app-content">
-       <router-view></router-view>
+       <keep-alive>
+         <router-view></router-view>
+       </keep-alive>
      </div>
      <div class="app-foot">
        <p>@ 2017 大连东软信息学院</P>
      </div>
+     <mydialog :isShow="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')"></mydialog>
   </div>
 </template>
 
 <script>
+     import mydialog from './base/dialog'
 export default {
+  components:{
+      mydialog
+  },
+  data(){
+    return{
+      isShowAboutDialog:false
+    }
+  },
+  methods:{
+    aboutClick(){
+      this.isShowAboutDialog = true
+    }
+  },
   name: 'app'
 }
 </script>
