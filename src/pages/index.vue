@@ -44,6 +44,14 @@
 <script>
 import slideShow from '../components/sliderShow'
   export default{
+    created:function(){
+      this.$http.post('getList',(username='zhangsan'))
+      .then(function(data){
+        console.log(data)
+      },function(err){
+        console.log(err);
+      })
+    },
     components:{
       slideShow
     },

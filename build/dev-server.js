@@ -62,6 +62,17 @@ app.use(require('connect-history-api-fallback')())
 // serve webpack bundle output
 app.use(devMiddleware)
 
+var jsonServr = require('json-server')
+var apiserver = jsonServr.create()
+var apirouter = jsonServr.router('db.json')
+var middlewares = jsonServr.defaults()
+
+apiserver.use(middlewares)
+apiserver.use('/api',apirouter)
+apiserver.listen(port + 1, function(){
+    console.log('JSON Server is runing')
+})
+
 // serve pure static assets
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
