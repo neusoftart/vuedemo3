@@ -22,7 +22,16 @@
      <div class="app-foot">
        <p>@ 2017 大连东软信息学院</P>
      </div>
-     <mydialog :isShow="isShowAboutDialog" @on-close="closeDialog('isShowAboutDialog')"></mydialog>
+     <mydialog :isShow="isShowAboutDialog"
+               @on-close="closeDialog('isShowAboutDialog')">
+               <p>这是我的第一个vue项目，商城演示</p>
+     </mydialog>
+     <mydialog :isShow="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
+
+     </mydialog>
+     <mydialog :isShow="isShowRegDialog" @on-close="closeDialog('isShowRegDialog')">
+
+     </mydialog>
   </div>
 </template>
 
@@ -34,12 +43,20 @@ export default {
   },
   data(){
     return{
-      isShowAboutDialog:false
+      isShowAboutDialog:false,
+      isShowLogDialog:false,
+      isShowRegDialog:false
     }
   },
   methods:{
     aboutClick(){
       this.isShowAboutDialog = true
+    },
+    logClick(){
+      this.isShowLogDialog = true
+    },
+    regClick(){
+      this.isShowRegDialog = true
     },
     closeDialog(attr){
       this[attr] = false

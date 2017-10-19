@@ -5,7 +5,7 @@
       <transition name="drop">
         <div class="dialog-content" v-if="isShow">
           <p class="dialog-close" @click="closeMyself">X</p>
-          <solt>empty</solt>
+          <slot>empty</slot>
         </div>
       </transition>
     </div>
