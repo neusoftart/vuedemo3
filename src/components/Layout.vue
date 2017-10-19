@@ -40,6 +40,9 @@ export default {
   methods:{
     aboutClick(){
       this.isShowAboutDialog = true
+    },
+    closeDialog(attr){
+      this[attr] = false
     }
   },
   name: 'app'
