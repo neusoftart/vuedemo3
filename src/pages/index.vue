@@ -45,10 +45,11 @@
 import slideShow from '../components/sliderShow'
   export default{
     created:function(){
-      this.$http.post('getList',(username='zhangsan'))
-      .then(function(data){
-        console.log(data)
-      },function(err){
+      this.$http.get('api/getNewsList')
+      .then((res) => {
+        this.newsList = res.data
+        console.log(res.data)
+      },(err) => {
         console.log(err);
       })
     },
@@ -107,22 +108,7 @@ import slideShow from '../components/sliderShow'
           },
         ],
         newsList:[
-          {
-            title: 'MacBookPro',
-            url: 'http://www.apple.com.cn'
-          },
-          {
-            title: 'iPhone',
-            url: 'http://www.apple.com.cn'
-          },
-          {
-              title: '测试数据',
-              url: 'http://www.apple.com.cn'
-          },
-          {
-                title: '广告分发',
-                url: 'http://www.apple.com.cn'
-          },
+
         ],
         productList:{
           pc:{
