@@ -18,7 +18,7 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-
+                   <VSelection :selections="buyTypes"></VSelection> 
               </div>
           </div>
           <div class="sales-board-line">
@@ -82,19 +82,29 @@
 </template>
 
 <script>
-
-export default {
-  components: {
-
+import VSelection from '../../components/base/selection'
+export default{
+  components:{
+    VSelection
   },
-  data () {
-    return {
-   }
-  },
-  mounted () {
-
+  data(){
+    return{
+      buyTypes:[
+        {
+          label:'入门版',
+          value:0
+        },
+        {
+          label:'中级版',
+          value:1
+        },
+        {
+          label:'高级版',
+          value:2
+        },
+      ]
+    }
   }
-
 }
 </script>
 
