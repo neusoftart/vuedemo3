@@ -60,7 +60,7 @@ computed: {
 </script>
 
 
-<style scoped>
+<style>
 .detail-wrap {
   width: 1200px;
   margin: 0 auto;
