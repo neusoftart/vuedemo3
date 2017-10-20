@@ -27,19 +27,23 @@
                <p>这是我的第一个vue项目，商城演示</p>
      </mydialog>
      <mydialog :isShow="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
-
+          <logForm></logForm>
      </mydialog>
      <mydialog :isShow="isShowRegDialog" @on-close="closeDialog('isShowRegDialog')">
-
+           <regForm></regForm>
      </mydialog>
   </div>
 </template>
 
 <script>
      import mydialog from './base/dialog'
+     import LogForm from './logForm'
+     import RegForm from './regForm'
 export default {
   components:{
-      mydialog
+      mydialog,
+      LogForm,
+      RegForm
   },
   data(){
     return{
