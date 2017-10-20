@@ -24,6 +24,7 @@ let router = new Router({
     {
       path: '/detail',
       component: Detail,
+      redirect:'/detail/count',
       children:[
         {
           path: 'forecast',
