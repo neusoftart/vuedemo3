@@ -6,6 +6,10 @@ import Router from 'vue-router'
 import IndexPage from './pages/index'
 import Detail from './pages/detail'
 import VueResource from 'vue-resource'
+import DetailAna from './pages/detail/analysis'
+import DetailCou from './pages/detail/count'
+import DetailFor from './pages/detail/forecast'
+import DetailPub from './pages/detail/publish'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -19,7 +23,25 @@ let router = new Router({
     },
     {
       path: '/detail',
-      component: Detail
+      component: Detail,
+      children:[
+        {
+          path: 'forecast',
+          component: DetailFor
+        },
+        {
+          path: 'count',
+          component: DetailCou
+        },
+        {
+          path: 'analysis',
+          component: DetailAna
+        },
+        {
+          path: 'publish',
+          component: DetailPub
+        }
+      ]
     }
   ]
 })
