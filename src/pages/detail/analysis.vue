@@ -10,7 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
-
+                 <VCounter @onchange="onParamChange('buyNum',$event)"></VCounter>
               </div>
           </div>
           <div class="sales-board-line">
@@ -18,7 +18,7 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-                   <VSelection :selections="buyTypes"></VSelection> 
+                   <VSelection :selections="buyTypes" @on-change="onParamChange('buyType',$event)"></VSelection>
               </div>
           </div>
           <div class="sales-board-line">
@@ -83,12 +83,47 @@
 
 <script>
 import VSelection from '../../components/base/selection'
+import VCounter from '../../components/base/counter'
 export default{
   components:{
-    VSelection
+    VSelection,
+    VCounter
   },
   data(){
     return{
+      buyNum:0,
+      buyType:{},
+      versions:[],
+      period:{},
+      price:0,
+      versionList:[
+        {
+          label:'客户版',
+          value:0
+        },
+        {
+          label:'代理商版',
+          value:1
+        },
+        {
+          label:'专家版',
+          value:2
+        }
+      ],
+      periodList:[
+        {
+          label:'半年',
+          value:0
+        },
+        {
+          label:'一年',
+          value:1
+        },
+        {
+          label:'三年',
+          value:2
+        }
+      ],
       buyTypes:[
         {
           label:'入门版',
@@ -102,8 +137,35 @@ export default{
           label:'高级版',
           value:2
         },
-      ]
+      ],
+      isShowPayDialog:false,
+      bankId:null,
+      orderId:null,
+      isShowCheckorder:false,
+      isShowErrDialog:false
     }
+  },
+  methods:{
+    onParamChange(attr,val){
+      this[attr] = val
+      this.getPrice()
+    },
+    getPrice(){
+      let buyVersionsArray = _.map(this.versions,(item) =>{
+        return item.value
+      })
+      let reqParams = {
+        buyNumber:this.buyNum,
+        buyType:this.buyType.value,
+        period:this.period.value,
+        version:buyVersionsArray.join(',')
+      }
+      this.$http.post('/api/getPrice',reqParams)
+      .then((res)=>{
+        this.price = res.data.amount
+      })
+    },
+
   }
 }
 </script>
