@@ -2,7 +2,7 @@
   <div class="chooser-component">
     <ul class="chooser-list">
       <li
-      v-for="(item,index) in sekections"
+      v-for="(item,index) in selections"
       @click="chooseSelection(index)"
       :title="item.label"
       :class="{active:index === nowIndex}">

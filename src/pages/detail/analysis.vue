@@ -26,7 +26,9 @@
                   有效时间：
               </div>
               <div class="sales-board-line-right">
-
+                  <VChooser :selections="periodList"
+                    @onchange="onParamChange('period',$event)"
+                  ></VChooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -84,10 +86,12 @@
 <script>
 import VSelection from '../../components/base/selection'
 import VCounter from '../../components/base/counter'
+import VChooser from '../../components/base/chooser'
 export default{
   components:{
     VSelection,
-    VCounter
+    VCounter,
+    VChooser
   },
   data(){
     return{
