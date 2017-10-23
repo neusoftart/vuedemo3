@@ -46,7 +46,7 @@
                   总价：
               </div>
               <div class="sales-board-line-right">
-
+                    {{ price }} 元
               </div>
           </div>
           <div class="sales-board-line">
@@ -174,6 +174,13 @@ export default{
       })
     },
 
+  },
+  mounted(){
+    this.buyNum = 1
+    this.buyType = this.buyTypes[0]
+    this.versions = [this.versionList[0]]
+    this.period = this.periodList[0]
+    this.getPrice()
   }
 }
 </script>

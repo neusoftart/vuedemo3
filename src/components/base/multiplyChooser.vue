@@ -39,7 +39,7 @@ export default {
           return idx !== index
         })
       }
-      let nowObjectArray = _.map(this.nowIndexs,(idx)=>{
+      let nowObjArray = _.map(this.nowIndexs,(idx)=>{
         return this.selections[idx]
       })
       this.$emit('on-change',nowObjArray)
