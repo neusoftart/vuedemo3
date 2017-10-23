@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import _ form 'lodash'
+import _ from 'lodash'
 export default {
   props:{
     selections:{
